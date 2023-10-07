@@ -119,7 +119,66 @@ footer {
   
 }
 
-
+/**
+  Estilo de carga
+**/
+.container{
+    font-family: 'Roboto';
+    background: #210442;
+}
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text{
+  font-size: 80px;
+  font-weight: 400;
+  text-align: center;
+  color: #744DA0;
+  margin-bottom: 25px;
+}
+.add{
+  animation: animate .7s ease-in-out .1s;
+}
+@keyframes animate {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.2;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.progreso-bar{
+  width: 406px;
+  height: 22px;
+  background: #180F08;
+  
+  border-radius: 13px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+.progreso{
+  width: 203px;
+  height: 16px;
+  background: #A12974;
+   
+  border-radius: 13px;
+}
+.percentaje{
+  position: absolute;
+  left: 187px;
+  color: #EEEAF3;
+  opacity: 0.5;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 23px;
+}
 
 /**@media only screen and (min-width: 1440px) {
   .content {
