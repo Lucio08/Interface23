@@ -39,6 +39,7 @@
 
 body{
     margin: 0%;   
+    
 }
 
 
@@ -380,13 +381,12 @@ footer {
 
 
 /*Iniciar Sesion*/
+
 .main-inicioSesion {
   display: flex;
-  flex-direction: row;
-  height: 700px;
-  width: 1000px;
+  max-width: 1000px;
+  margin: 10px auto;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  margin: 10px auto; /* Centrar horizontalmente, con márgenes superior e inferior de 10px */
 }
 
 .informacion {
@@ -395,7 +395,8 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 50px;
-  text-align: left; /* Alineación de texto añadida */
+  text-align: left;
+  max-width: 50%;
 }
 
 .texto-info,
@@ -404,6 +405,7 @@ footer {
   color: var(--main-blanco-color);
   font-size: 20px;
   margin-bottom: 25px;
+  text-align: justify;
 }
 
 .informacion hr {
@@ -411,8 +413,8 @@ footer {
 }
 
 .form-inicioSesion {
-  padding: 100px 100px;
-  width: 100%;
+  padding: 100px 50px; /* Reducido el padding */
+  flex-grow: 1; /* Permite al formulario crecer para llenar el espacio restante */
 }
 
 .form-inicioSesion h2 {
@@ -433,16 +435,18 @@ footer {
   border-color: var(--main-negro-color);
   border-width: 0px 0px 0px 5px;
   border-style: solid;
-  padding: 15px 35px;
-  margin-bottom: 20px;
+  padding: 10px 15px;
+  margin-bottom: 16px;
   background-color: lightgrey;
   border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 p a {
   color: blue;
   text-decoration: none;
-  margin-bottom: 35px;
+  margin-bottom: 10px; /* Reducido el margen */
   font-size: 15px;
 }
 
@@ -450,11 +454,11 @@ p a {
   background-color: var(--main-sec-secundario-color);
   padding: 15px;
   border: 0;
-  bottom: 0;
   color: var(--main-blanco-color);
-  font-size: 10px;
+  font-size: 14px; /* Aumentado el tamaño de la fuente */
   text-transform: uppercase;
   border-radius: 2px;
+  cursor: pointer; /* Cambiado a cursor de puntero */
 }
 
 label {
@@ -466,16 +470,17 @@ label {
 .social {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px; /* Agregado espacio en la parte inferior */
 }
 
 .social a {
-  margin: 0 10px; /* Espacio entre los botones añadido */
+  margin: 0 10px;
 }
 
 .btn-google,
 .btn-facebook {
   text-align: center;
-  padding: 10px;
+  padding: 1px;
 }
 
 .inicio-secundario {
@@ -487,9 +492,31 @@ label {
 /* Estilos de texto */
 
 .texto-info {
-  font-size: 24px; /* Tamaño de fuente aumentado */
+  font-size: 24px;
 }
 
 .texto-descripcion {
-  font-size: 16px; /* Tamaño de fuente ajustado */
+  font-size: 15px;
+  max-height: 100px;
+  margin-bottom: 10px; /* Reducido el margen inferior */
+  word-wrap: break-word;
+}
+
+/*Registro*/
+.main-registro{
+  width: 400px;
+  padding: 30px;
+  margin: auto;
+  border-radius: 4px;
+  
+}
+.titulo{
+  font-size: 22px;
+}
+.social-registro{
+  display: flex;
+  margin:4px;
+}
+.formDatos{
+  
 }
