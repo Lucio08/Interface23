@@ -563,7 +563,8 @@ label {
   max-height: 100px;
   margin-bottom: 10px;
   word-wrap: break-word;
-}
+     
+} 
 /*Registro*/
 .main-registro{
   width: 400px;
