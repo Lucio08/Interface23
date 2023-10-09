@@ -1,81 +1,580 @@
 /*Variables*/
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 :root {
   /*Primario*/
   --main-pr-sombra2-color: #210442;
-  --main-pr-sombra1-color: #320B5F;  
-  --main-primario-color: #461C75;
-  --main-pr-luz1-color: #5A308A;
-  --main-pr-luz2-color: #744DA0;
-  
+  --main-pr-sombra1-color: #320b5f;
+  --main-primario-color: #461c75;
+  --main-pr-luz1-color: #5a308a;
+  --main-pr-luz2-color: #744da0;
+
   /*Secundario*/
   --main-sec-sombra2-color: #210442;
-  --main-sec-sombra1-color: #320B5F;  
+  --main-sec-sombra1-color: #320b5f;
   --main-sec-secundario-color: #262087;
-  --main-sec-luz1-color: #3E389D;
-  --main-sec-luz2-color: #5954AD;
-  
+  --main-sec-luz1-color: #3e389d;
+  --main-sec-luz2-color: #5954ad;
+
   /*BLANCO - NEGRO - ACENTO*/
-  --main-blanco-color: #EEEAF3;
-  --main-negro-color: #180F08;
-  --main-acento-color: #A12974;
+  --main-blanco-color: #eeeaf3;
+  --main-negro-color: #180f08;
+  --main-acento-color: #a12974;
 
   /*Estados*/
-  --main-verde-color: #3FA349;
-  --main-amarillo-color: #C8C116;
-  --main-rojo-color: #AE1632;
+  --main-verde-color: #3fa349;
+  --main-amarillo-color: #c8c116;
+  --main-rojo-color: #ae1632;
 
   /*Encabezado */
 
   /*Body*/
-  --main-gradiente-color:linear-gradient(180deg, #320B5F 0.14%, #171419 99.26%);
+  --main-gradiente-color: linear-gradient(
+    180deg,
+    #320b5f 0.14%,
+    #171419 99.26%
+  );
 
   /*Fuentes*/
-    --font-size-h1:25px;
-    --font-family-h1: 'Roboto';
+  --font-size-h1: 25px;
+  --font-family-h1: "Roboto";
 
-    --font-family-h2: 'Roboto';
-    --font-size-h2:25px;
+  --font-family-h2: "Roboto";
+  --font-size-h2: 25px;
 }
-
-
-body{
-    margin: 0%;   
-    
+body {
+  margin: 0;
+  background: var(--main-gradiente-color);
 }
-
-
 /*Defino las secciones de la pagina con grid*/
 .content {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-}
-header {
-  /*grid-area: header;
-  border: 1px black solid;
   width: 100%;
-  height: 50px;
-  background-color: #320b5f;
-  display: block;
-  justify-content: center;*/
+  max-width: 1000px;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "header header header"
+    "contenido contenido contenido"
+    "fat-footer fat-footer fat-footer";
+}
 
+.content header,
+.content .contenido,
+.content .fat-footer {
+  background: var(--main-blanco-color);
+  padding: 20px;
+  border-radius: 4px;
+}
+/*CARRUSEL RESPOSIVE*/
+
+
+/*--------------------*/
+.content header {
+  background: var(--main-gradiente-color);
+  color: var(--main-blanco-color);
+  grid-area: header;
+  /*  grid-column-start:1;
+    grid-column-end:-1;*/
+}
+.content .contenido {
+  grid-area: contenido;
+  /* grid-column: span 3; */
+}
+
+.content-juego header,
+.content-juego .contenido-juego,
+.content-juego .fat-footer {
+  background: var(--main-blanco-color);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.content header {
+  background: var(--main-gradiente-color);
+  color: var(--main-blanco-color);
+  grid-area: header;
+  /*  grid-column-start:1;
+    grid-column-end:-1;*/
+}
+.content .contenido {
+  grid-area: contenido;
+  /* grid-column: span 3; */
+}
+
+.content-juego header {
+  background: var(--main-gradiente-color);
+  color: var(--main-blanco-color);
+  grid-area: header;
+  /*  grid-column-start:1;
+    grid-column-end:-1;*/
+}
+.content-juego .contenido-juego {
+  grid-area: contenido-juego;
+  /* grid-column: span 3; */
+}
+.content-juego .descripcion-juego {
+  grid-area: descripcion-juego;
+}
+.content-juego .comentarios {
+  grid-area: comentarios;
+}
+.content-juego .fat-footer {
+  background: var(--main-gradiente-color);
+  max-height: 100%;
+  box-sizing: border-box;
+  grid-area: fat-footer;
+  /*grid-column: span 3; */
+}
+
+.navegacion-list {
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  height: 3.5rem;
-  background:var(--main-gradiente-color);
-
+  align-items: center;
+}
+.navegacion-list li {
+  margin: auto;
+  list-style: none;
 }
 
-.btn-menu{
-  margin:0.625rem;
+.navegacion-list li img {
+  width: 30px;
+}
+.navegacion-list li svg {
+  width: 30px;
+}
+.navegacion-list li div p {
+  display: none;
+}
+
+.inputBusqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #171419;
+  padding: 6px;
+  border-radius: 8px;
+  width: 80%;
+  margin-left: 5px;
+}
+
+.inputBusqueda input {
+  border: none;
+  background-color: #171419;
+  padding: 5px;
+  border-radius: 8px;
+  color: var(--main-blanco-color);
+  width: 80%;
+  margin-left: 5px;
+}
+
+/*FOOTER*/
+.content .fat-footer {
+  background: var(--main-gradiente-color);
+  max-height: 100%;
+  box-sizing: border-box;
+  grid-area: fat-footer;
+  /*grid-column: span 3; */
+}
+.container-footer {
+  max-height: 100%;
+}
+.footer-row {
+  margin-bottom: 0;
+  margin-left: auto;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.fat-footer p {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--main-blanco-color);
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.links h3 {
+  font-size: large;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--main-blanco-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+}
+.links ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0;
+  color: var(--main-blanco-color);
+  text-decoration: none;
+}
+.links ul li {
+  margin-right: 3rem;
+  list-style: none;
+}
+/*------------*/
+
+@media only screen and (min-width: 800px) {
+  .content {
+    max-width: 100%;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas:
+      "header header header header"
+      "header header header header"
+      "contenido contenido contenido contenido"
+      "contenido contenido contenido contenido"
+      "fat-footer fat-footer fat-footer fat-footer"
+      "fat-footer fat-footer fat-footer fat-footer";
+  }
+
+  .navegacion-list li .mis-juegos p {
+    display: flex;
+  }
+  .mis-juegos {
+    display: flex;
+    align-items: center; /* Alinea verticalmente en el centro */
+  }
+
+  .mis-juegos svg {
+    margin-right: 5px; /* Añade un espacio entre el SVG y el texto */
+  }
+
+  .inputBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #171419;
+    padding: 6px;
+    width: 100%;
+  }
+
+  .inputBusqueda input {
+    border: none;
+    background-color: #171419;
+    padding: 5px;
+    border-radius: 6px;
+    color: var(--main-blanco-color);
+    width: 100%;
+  }
+  hr {
+    width: 100%;
+  }
+  .content .fat-footer {
+    background: var(--main-gradiente-color);
+  }
+  .footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin: 0 auto;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fat-footer {
+    background-color: #f8f8f8; /* Cambia el color de fondo si es necesario */
+    padding: 20px; /* Ajusta el espacio interior según tus preferencias */
+    text-align: center; /* Centra el texto de los derechos reservados */
+  }
+  .fat-footer p {
+    margin-top: 5rem;
+    text-align: center;
+    color: var(--main-blanco-color);
+  }
+
+  /*pagina de juegos*/
+
+  .content-juego {
+    max-width: 100%;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas:
+      "header header header header"
+      "contenido-juego contenido-juego instrucciones instrucciones"
+      "contenido-juego contenido-juego instrucciones instrucciones"
+      "descripcion-juego descripcion-juego descripcion-juego descripcion-juego"
+      "comentarios comentarios comentarios comentarios"
+      "fat-footer fat-footer fat-footer fat-footer";
+  }
+
+  .content-juego .contenido-juego {
+    display: grid;
+    grid-area:contenido-juego;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: var(--main-pr-sombra2-color);
+    /* grid-column: span 3; */
+  }
+
+  .content-juego h2 {
+    margin-top: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    text-align: center;
+    color: var(--main-blanco-color);
+  }
+  .content-juego p {
+    color: var(--main-blanco-color);
+  }
+  .imagen-juego img {
+    max-height: 50%;
+    margin-left: 24rem;
+    margin-bottom: 1rem;
+    width: 50%;
+  }
+
+  .content-juego .descripcion-juego {
+    border-radius: 2px;
+    width: 100%;
+    min-height: 50%;
+    background-color: var(--main-pr-luz1-color);
+    opacity: 0.5px;
+  }
+  .descripcion-juego img{
+    margin-left: 1%;
+    width: 5%;
+  }
+  .content-juego .descripcion-juego h3 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    color: var(--main-blanco-color);
+    text-align: left;
+    margin-left: 20px;
+  }
+  .content-juego .descripcion-juego p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    color: var(--main-blanco-color);
+    text-align: left;
+    margin-left: 20px;
+  }
+  .content-juego .comentarios {
+    margin-top: 10px;
+    width: 100%;
+    min-height: 50%;
+    background-color: var();
+    opacity: 0.5px;
+  }
+
+  .clasificacion p {
+    margin: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  hr {
+    color: ghostwhite;
+  }
+  .clasificacion span {
+    font-weight: bold;
+    color: var(
+      --main-blanco-color
+    ); /* Cambia el color según tus preferencias */
+  }
+
+  .comentarios-seccion {
+    max-width: 600px;
+    margin: 5px;  
+    
+  }
+
+  .comentario-nuevo {
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 2rem;
+  }
+
+  .foto-usuario {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc; /* Puedes añadir una imagen de perfil aquí */
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden; /* Esto es importante para aplicar la máscara circular */
+    border-radius: 50%; /* Esto creará la máscara circular */
+  }
+  .foto-usuario img {
+    max-width: 100%;
+    max-height: 100%;
+
+    height: auto; /* Se ajustará proporcionalmente según el ancho */
+    display: block; /* Elimina cualquier espacio adicional causado por márgenes o relleno */
+  }
+  .comentario-nuevo input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid var#171419;
+    background-color:#171419;
+    border-radius: 5px;
+  }
+
+  .comentario {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .contenido-comentario {
+    margin-left: 10px;
+    
+  }
+  .contenido-comentario p{
+    margin-top: 1px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+ 
+  .contenido-comentario h4{
+    margin: 0;
+    font-weight: bold;
+    color: var(--main-blanco-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .fecha-hora {
+  
+    color: #777;
+    font-size: 12px;
+  }
+  .comentar-btn {
+    height: 100%;
+    padding: 10px;; /* Ajusta el tamaño del botón según sea necesario */
+    background-color: var(--main-pr-luz1-color); /* Cambia el color del botón según tus preferencias */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top:1px; /* Ajusta el margen superior según sea necesario */
+    margin-left: 1rem;
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 1px var(--main-negro-color);
+  }
+
+  .destacados-slider {
+    position: relative;
+    width: 100%;
+    max-width: 539.25px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+}
+
+.btn-menu {
+  margin: 0;
+  position: relative;
+  text-decoration: none;
+  color: var(--main-blanco-color);
+}
+.btn-usuario {
+  margin: 0;
+  position: relative;
+  text-decoration: none;
+  color: var(--main-blanco-color);
+}
+.btn-menu:hover .menu {
+  display: block;
+}
+
+.btn-usuario:hover .menu-usuario {
+  display: block;
+}
+.menu {
+  display: none;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--main-sec-luz1-color);
+  position: absolute;
+  min-width: 150px;
+  box-shadow: 2px 2px 5px var(--main-negro-color);
+}
+.menu-usuario {
+  display: none;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--main-sec-luz1-color);
+  position: absolute;
+  min-width: 150px;
+  box-shadow: 2px 2px 5px var(--main-negro-color);
+  right: 0;
+}
+
+.menu > a {
+  color: white;
+  text-decoration: none;
+}
+.menu-usuario > a {
+  color: white;
+  text-decoration: none;
 }
 ul.nav {
   width: 100%;
-  margin-top: 1.375px;
+  margin-top: 1px;
+  padding: 0rem;
+  display: none;
+  flex-direction: column;
+}
+ul.nav-usuario {
+  width: 100%;
+  margin-top: 1px;
   padding: 0rem;
   display: none;
   flex-direction: column;
@@ -83,96 +582,92 @@ ul.nav {
 ul.nav.show {
   display: flex;
 }
-
+ul.nav-usuario.show {
+  display: flex;
+}
 ul.nav li {
   list-style: none;
   padding: 0.625rem 0.625rem;
-  font-family: 'Arial Narrow Bold';
+  font-family: "Arial Narrow Bold";
+  color: var(--main-blanco-color);
+}
+ul.nav-usuario li {
+  list-style: none;
+  padding: 0.625rem 0.625rem;
+  font-family: "Arial Narrow Bold";
+  color: var(--main-blanco-color);
 }
 
-ul.nav li a {
+ul.nav a {
   text-decoration: none;
-  color: white;
+  color: var(--main-negro-color);
 }
-
+ul.nav-usuario a {
+  text-decoration: none;
+  color: var(--main-negro-color);
+}
 ul.nav li:hover {
-  background-color: gray;
+  background-color: var(--main-sec-sombra2-color);
 }
 
-.img-logo{
-    padding: 0rem;
-  
-}
-.fondo-main{
-  margin-top: 0rem;
-  background: var(--main-gradiente-color);
-  
-}
-
-footer {
-  /*grid-area: footer;
-  display: flex;
-  justify-content: space-between;  
-  width: 100%;
-  border: 1px solid black;
-  height: 100px;*/
-  
+ul.nav-usuario li:hover {
+  background-color: var(--main-sec-sombra2-color);
 }
 
 /**
   Estilo de carga
 **/
-.container{
-    font-family: 'Roboto';
-    background: #210442;
+.container {
+  font-family: "Roboto";
+  background: #210442;
 }
-.loading{
+.loading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.text{
+.text {
   font-size: 80px;
   font-weight: 400;
   text-align: center;
-  color: #744DA0;
+  color: #744da0;
   margin-bottom: 25px;
 }
-.add{
-  animation: animate .7s ease-in-out .1s;
+.add {
+  animation: animate 0.7s ease-in-out 0.1s;
 }
 @keyframes animate {
-  0%{
+  0% {
     opacity: 1;
   }
-  50%{
+  50% {
     opacity: 0.2;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
-.progreso-bar{
+.progreso-bar {
   width: 406px;
   height: 22px;
-  background: #180F08;
-  
+  background: #180f08;
+
   border-radius: 13px;
   padding: 3px;
   box-sizing: border-box;
 }
-.progreso{
+.progreso {
   width: 203px;
   height: 16px;
-  background: #A12974;
-   
+  background: #a12974;
+
   border-radius: 13px;
 }
-.percentaje{
+.porcentaje {
   position: absolute;
   left: 187px;
-  color: #EEEAF3;
+  color: #eeeaf3;
   opacity: 0.5;
   font-size: 15px;
   font-weight: bold;
@@ -180,280 +675,21 @@ footer {
   line-height: 23px;
 }
 
-/**@media only screen and (min-width: 1440px) {
-  .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-        /*Posicionamos los elementos donde queremos
-        "header header header"
-        "main  main main"
-        "footer footer footer";
-    }
-    header {
-      border: 1px black solid;
-      height: 50px;
-      background-color: #320b5f;
-      width: auto;
-    }
-    main{
-      grid-area: main;
-      width: 100%;
-      border: 1px solid black;
-      height: 100%;
-    }
-    .form-registro{
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content:flex-start;
-      align-items: flex-start;
-      font-weight: bolder;     
-    }
-  
-    .Carousel {
-      width: 100%;
-      margin: 0px 60px;
-  }
-  
-  .Carousel h3 {
-      font-size: 26px;
-      line-height: 38px;
-      padding-bottom: 24px;
-      opacity: .9;
-      text-transform: uppercase;
-      letter-spacing: 10px;
-      text-align: left;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  /* images
-  
-  .slick-list {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 269.62px; /* Cambiada la altura 
-    padding: 10px 0px;
-    margin: 0px auto;
-    max-width: 90vw;
-    overflow: hidden;
-  }
-  
-  .slick-track {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre los cards 
-    transition: .5s ease-in-out;
-    margin: 0 -5px; /* Añade un margen negativo para compensar el espacio agregado 
-  }
-  
-  .slick {
-    position: relative;
-    width: 539.25px;
-    height: 269.62px; /* Cambiada la altura 
-    padding: 0 18px;
-    float: left;
-    box-sizing: border-box;
-    display: flex
-    border-radius: 8px; /* Nuevo radio de borde 
-    background: #5C3030; /* Nuevo color de fondo 
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Nueva sombra 
-    flex-shrink: 0; /* Evita que las imágenes se reduzcan 
-    margin: 0 5px; /* Añade un espacio entre los cards 
-  }
-  
-  .slick h4 {
-    position: absolute;
-    z-index: 1;
-    font-size: 22px;
-    line-height: 23px;
-    color: #fff;
-    padding: 15px;
-  }
-  
-  .slick h4 small {
-    font-size: 15px;
-    display: block;
-  }
-  
-  .slick a img {
-  object-fit: cover;
-  height: 100%; /* Cambiado a porcentaje para adaptarse al contenedor 
-  width: 100%;
-  border-radius: 8px; /* Nuevo radio de borde 
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Nueva sombra 
-  transition: .3s ease-in-out;
-  }
-  .slick a img:hover {
-    opacity: .85;
-  }
-  
-  
-  /* buttons 
-  
-  .slick-arrow{
-    border-radius: 30px;
-    background-color: #fff;
-    position: absolute;
-    z-index: 4;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
-    border: 0;
-    cursor: pointer;
-  }
-  .slick-arrow:focus{
-    outline: 0;
-  }
-  .slick-arrow svg{
-    width: 12px;
-    height: 100%;
-    color: rgba(0,0,0,.7);
-  }
-  .slick-prev{
-    left: 0px;
-  }
-  .slick-next{
-    right: 0px;
-  }
-  
-  
-  
-  /*Carrusel mas chico
-  .CustomCarousel {
-    width: 100%;
-    margin: 0px 60px;
-  }
-  
-  .CustomCarousel h3 {
-    font-size: 26px;
-    line-height: 38px;
-    padding-bottom: 24px;
-    opacity: .9;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    text-align: left;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  /* images 
-  .custom-slick-list {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 304px;
-    padding: 10px 0px;
-    margin: 0px auto;
-    max-width: 90vw;
-    overflow: hidden;
-  }
-  
-  .custom-slick-track {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    transition: .5s ease-in-out;
-  }
-  
-  .custom-slick {
-    position: relative;
-    width: 206.58px; /* Nuevo ancho 
-    height: 116.05px; /* Nueva altura 
-    padding: 0 18px;
-    float: left;
-    box-sizing: border-box;
-    display: flex;
-    height: 100%;
-    margin: 10px; /* Espacio entre las cards 
-    border-radius: 8px; /* Borde redondeado 
-  }
-  
-  .custom-slick h4 {
-    position: absolute;
-    z-index: 1;
-    font-size: 16px; /* Tamaño del texto 
-    line-height: 20px; /* Espaciado entre líneas 
-    color: #fff;
-    padding: 10px; /* Espaciado alrededor del texto 
-  }
-  
-  .custom-slick h4 small {
-    font-size: 15px;
-    display: block;
-  }
-  
-  .custom-slick a img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px; /* Borde redondeado 
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
-    transition: .3s ease-in-out;
-  }
-  
-  .custom-slick a img:hover {
-    opacity: .85;
-  }
-  
-  /* buttons 
-  .custom-slick-arrow {
-    border-radius: 30px;
-    background-color: #fff;
-    position: absolute;
-    z-index: 4;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
-    border: 0;
-    cursor: pointer;
-  }
-  
-  .custom-slick-arrow:focus {
-    outline: 0;
-  }
-  
-  .custom-slick-arrow svg {
-    width: 12px;
-    height: 100%;
-    color: rgba(0,0,0,.7);
-  }
-  
-  .custom-slick-prev {
-    left: 0px;
-  }
-  
-  .custom-slick-next {
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-    
-   
-  **/
-
-
 /*Iniciar Sesion*/
 .main-inicioSesion {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
-  margin-left: 30rem;
-  background-color: #5954AD;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  margin-left: 35rem;
+  background-color: var(--main-pr-sombra2-color);
   width: 22rem;
   padding: 2rem;
   border-radius: 8px;
-  max-height:1000px;
+  box-shadow: 5px var(--main-negro-color);
 }
 
 .form-inicioSesion {
@@ -465,18 +701,20 @@ footer {
 }
 
 .main-inicioSesion h2 {
-  color: var(--main-pr-sombra1-color);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--main-blanco-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .form-inicioSesion p {
   color: var(--main-negro-color);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.texto-link{
-  color: var(--main-negro-color);
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.texto-link {
+  color: var(--main-blanco-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .div-inicio {
   display: flex;
@@ -496,34 +734,45 @@ footer {
 }
 
 p a {
-  color: blue;
+  color: var(--main-blanco-color);
   text-decoration: none;
   margin-bottom: 10px;
   font-size: 15px;
 }
 
-.btn-crearCuenta {
-  background: linear-gradient(90deg, #320B5F -0.01%, #461C75 100.08%, #4E247D 100.08%);
+.btn-cuenta {
+  background: linear-gradient(
+    90deg,
+    #320b5f -0.01%,
+    #461c75 100.08%,
+    #4e247d 100.08%
+  );
   padding: 12px;
   border: 0;
-  width: 190px;
-  font-family: 'Roboto';
+  width: 100%;
+  font-family: "Roboto";
   color: var(--main-blanco-color);
-  font-size: 11.5px;
+  font-size: 15px;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 8px;
   cursor: pointer;
+  margin-top: 15px;
+  letter-spacing: 5px;
 }
 
 label {
+  margin: 5px;
+  color: var(--main-blanco-color);
   text-align: left;
-  font-size:small;
- font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: small;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .social {
   display: flex;
   justify-content: center;
+  margin: 0.5 rem;
 }
 
 .social a {
@@ -537,45 +786,91 @@ label {
 }
 
 .inicio-secundario {
+  color: var(--main-blanco-color);
   text-align: center;
-  margin: 0;
-  padding: 10px;
+  margin: 1 rem;
+  padding: 1px;
   font-size: small;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.logo-container{
+.logo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.logo-container img{
-  padding-left: 50px ;
+.logo-container img {
+  padding-left: 50px;
   margin: 0;
-  width: 50px ;
+  width: 50px;
   text-align: center;
+}
 
+.success-message {
+  background-color: #4caf50; /* Color de fondo verde */
+  color: #fff; /* Texto blanco */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  margin-bottom: 10px; /* Espacio entre elementos */
+  opacity: 0; /* Inicialmente invisible */
+  transform: scale(0.8); /* Escala inicial más pequeña */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.success-message.show {
+  opacity: 1; /* Hacer visible */
+  transform: scale(1); /* Restaurar la escala normal */
 }
 
 /*Registro*/
-.main-registro{
+.main-registro {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 35rem;
   width: 400px;
   padding: 30px;
-  margin: auto;
   border-radius: 4px;
   font-family: var(--font-family-h1);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+  background-color: var(--main-pr-sombra2-color);
+  border-radius: 8px;
+  box-shadow: 5px var(--main-negro-color);
+}
+.recapcha img{
+  margin-top: 3px;
+  width: 40%;
+  margin-left: 120px;
+/* Asegúrate de que la imagen esté visible inicialmente */
+}
+.recapcha {
+  position: relative;
+  display: inline-block;
+}
+#checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.main-registro h2 {
+  color: var(--main-blanco-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.titulo-registro{
-  font-size: var(--font-size-h1);
-  font-family: var(--font-family-h1);
+.separador {
+  color: var(--main-blanco-color);
 }
-.social-registro{
-  display: flex;
-  margin:4px;
+.main-registro .logo-container img {
+  padding-left: 30px;
+  margin: 0;
+  width: 50px;
+  text-align: center;
 }

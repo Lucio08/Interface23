@@ -8,9 +8,13 @@
 </head>
 <body>
     <main class="main-registro">
-        <h2 class="titulo-resgintro">Registrate</h2>     
-        <div class="social-registro">
-            <a class="btn-facebook" href="">
+        <div class="logo-container">
+            <img src="images/IMG-LOGO.png" alt="">
+            <h2>Registrate </h2>
+        </div>
+        <p class="inicio-secundario">Accede con Facebook o Google.</p>
+        <div class="social">
+            <a class="btn-facebook" href="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                     fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -18,7 +22,7 @@
                     <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
                 </svg>
             </a>
-            <a class="btn-google" href="">
+            <a class="btn-google" href="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-google"
                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                     fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -27,6 +31,7 @@
                 </svg>
             </a>
         </div>
+        <p class="separador"> O </p>
         <form action="" class="formDatos">
             <label for="nombre">Nombre: </label>
             <input type="text" name="" class="input" placeholder="Ingrese su nombre" required>
@@ -48,14 +53,18 @@
 
             <label for="confContraseña">Confirmar Contraseña: </label>
             <input type="password" name="" class="input" placeholder="Confirme contraseña" required>
+           
+            <div class="recapcha">
+                <img id="captchaImagen" src="images/recapcha.png" alt="">
+                <img id="checkmark" src="images/tilde.png" alt="Checkmark">
+            </div>
+            <button class="btn-cuenta">Crear Cuenta</button>
         </form>
-        <div class="recapcha">
-            <p>Captcha</p>
-        </div>
-        <button class="btn-crearCuenta">Crear Cuenta</button>
-        <p class="pregunta-pequenia">¿Ya tienes cuenta? <a href="iniciarSesion.html">Iniciar Sesion</a></p>
+       
+        
+        <p class="texto-link">¿Ya tienes cuenta? <a href="iniciarSesion.html">Iniciar Sesion</a></p>
     </main>
 
-    <script src="js/main.js"></script>
+    <script src="js/carga.js"></script>
 </body>
 </html>
